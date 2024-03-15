@@ -1,40 +1,5 @@
-<?php
-
-namespace Contactable\SWV;
-
-class MinFileSizeRule extends Rule {
-
-	const rule_name = 'minfilesize';
-
-	public function matches( $context ) {
-		if ( false === parent::matches( $context ) ) {
-			return false;
-		}
-
-		if ( empty( $context['file'] ) ) {
-			return false;
-		}
-
-		return true;
-	}
-
-	public function validate( $context ) {
-		$field = $this->get_property( 'field' );
-		$input = $_FILES[$field]['size'] ?? '';
-		$input = wpcf7_array_flatten( $input );
-		$input = wpcf7_exclude_blank( $input );
-
-		if ( empty( $input ) ) {
-			return true;
-		}
-
-		$threshold = $this->get_property( 'threshold' );
-
-		if ( array_sum( $input ) < $threshold ) {
-			return $this->create_error();
-		}
-
-		return true;
-	}
-
-}
+<br>
+<b>Fatal error</b>:  Uncaught Error: Class &quot;Contactable\SWV\Rule&quot; not found in C:\xampp\htdocs\asrr\wp-content\plugins\contact-form-7\includes\swv\php\rules\minfilesize.php:5
+Stack trace:
+#0 {main}
+  thrown in <b>C:\xampp\htdocs\asrr\wp-content\plugins\contact-form-7\includes\swv\php\rules\minfilesize.php</b> on line <b>5</b><br>

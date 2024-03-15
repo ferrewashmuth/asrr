@@ -1,45 +1,5 @@
-<?php
-
-namespace Contactable\SWV;
-
-class EnumRule extends Rule {
-
-	const rule_name = 'enum';
-
-	public function matches( $context ) {
-		if ( false === parent::matches( $context ) ) {
-			return false;
-		}
-
-		if ( empty( $context['text'] ) ) {
-			return false;
-		}
-
-		return true;
-	}
-
-	public function validate( $context ) {
-		$input = $this->get_default_input();
-		$input = wpcf7_array_flatten( $input );
-		$input = wpcf7_exclude_blank( $input );
-
-		$acceptable_values = (array) $this->get_property( 'accept' );
-		$acceptable_values = array_map( 'strval', $acceptable_values );
-		$acceptable_values = array_unique( $acceptable_values );
-
-		$acceptable_values = array_filter( $acceptable_values,
-			static function ( $val ) {
-				return '' !== $val;
-			}
-		);
-
-		foreach ( $input as $i ) {
-			if ( ! in_array( $i, $acceptable_values, true ) ) {
-				return $this->create_error();
-			}
-		}
-
-		return true;
-	}
-
-}
+<br>
+<b>Fatal error</b>:  Uncaught Error: Class &quot;Contactable\SWV\Rule&quot; not found in C:\xampp\htdocs\asrr\wp-content\plugins\contact-form-7\includes\swv\php\rules\enum.php:5
+Stack trace:
+#0 {main}
+  thrown in <b>C:\xampp\htdocs\asrr\wp-content\plugins\contact-form-7\includes\swv\php\rules\enum.php</b> on line <b>5</b><br>
